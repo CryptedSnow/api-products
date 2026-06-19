@@ -37,13 +37,13 @@ A autenticação por meio do **Laravel Sanctum** é necessária para acessar e e
 http://localhost:8000/api/documentation
 ```
 
-(Foto)
+![](https://raw.githubusercontent.com/CryptedSnow/api-products/refs/heads/main/public/img/01.png)
 
 2 - Em seguida clique em uma das opções:
 - ```AuthController -> /register -> Try it out -> Execute```.
 - ```AuthController -> /login -> Try it out -> Execute```.
 
-3 - Com isso o valor do **"token"** é gerado no ```Response body```, o valor deve ser algo parecido com isso: 
+3 - Com isso o valor do **token** é gerado no ```Response body```, o valor deve ser algo parecido com isso: 
 
 - ```"token": "11|YVwjMIIG62PHMmM0B3oZuDf2GBQyyHG16BmgujZC1d2a7609",```
 
@@ -51,12 +51,12 @@ Pois os dois endpoints mostrados anteriormente são os únicos que são acessív
 
 4 - Copie o valor gerado do **token** sem as aspas (apenas ```11|YVwjMII...```) e siga para o botão ```Authorize 🔒```.
 
-(Foto)
+![](https://raw.githubusercontent.com/CryptedSnow/api-products/refs/heads/main/public/img/02.png)
 
-(Foto)
+![](https://raw.githubusercontent.com/CryptedSnow/api-products/refs/heads/main/public/img/03.png)
 
 5 - No campo ```Value``` cole o valor do **token** e depois clique no botão ```Authorize```.
 
-(Foto)
+![](https://raw.githubusercontent.com/CryptedSnow/api-products/refs/heads/main/public/img/04.png)
 
 6 - Agora todos os endpoints com ícone de cadeado estão acessíveis, pois você realizou a atenticação de usuário através do **Laravel Sanctum**.
