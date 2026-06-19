@@ -47,11 +47,11 @@ http://localhost:8000/api/documentation
 
 - ```"token": "11|YVwjMIIG62PHMmM0B3oZuDf2GBQyyHG16BmgujZC1d2a7609",```
 
+![](https://raw.githubusercontent.com/CryptedSnow/api-products/refs/heads/main/public/img/02.png)
+
 Pois os dois endpoints mostrados anteriormente são os únicos que são acessíveis para usuários não autenticados.
 
 4 - Copie o valor gerado do **token** sem as aspas (apenas ```11|YVwjMII...```) e siga para o botão ```Authorize 🔒```.
-
-![](https://raw.githubusercontent.com/CryptedSnow/api-products/refs/heads/main/public/img/02.png)
 
 ![](https://raw.githubusercontent.com/CryptedSnow/api-products/refs/heads/main/public/img/03.png)
 
