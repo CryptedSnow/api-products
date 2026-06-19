@@ -29,7 +29,7 @@ docker-compose exec app php artisan migrate
 
 🔐 **Autenticação** 
 
-A maioria dos endpoints é necessário usar **Laravel Sactum** para conseguir executar os testes.
+A autenticação por meio do **Laravel Sanctum** é necessária para acessar e executar quase todos os endpoints da API.
 
 1 - Para executar os endpoints no ```Swagger``` da aplicação, acesse o seguinte endereço no navegador:
 
@@ -37,18 +37,26 @@ A maioria dos endpoints é necessário usar **Laravel Sactum** para conseguir ex
 http://localhost:8000/api/documentation
 ```
 
+(Foto)
+
 2 - Em seguida clique em uma das opções:
 - ```AuthController -> /register -> Try it out -> Execute```.
 - ```AuthController -> /login -> Try it out -> Execute```.
 
-3 - Com isso o valor do **"token"** é revelado no ```Response Body```, o valor deve ser algo parecido com isso: 
+3 - Com isso o valor do **"token"** é gerado no ```Response body```, o valor deve ser algo parecido com isso: 
 
-- ```"token": "5|g7WtnyKkgO2Lt1EvmcPtiqmNScqVl570Tw8eFmQr17ce4291"```
+- ```"token": "11|YVwjMIIG62PHMmM0B3oZuDf2GBQyyHG16BmgujZC1d2a7609",```
 
 Pois os dois endpoints mostrados anteriormente são os únicos que são acessíveis para usuários não autenticados.
 
-4 - Copie o valor do **token** sem as aspas (apenas ```5|g7WtnyK...```) e siga para o botão ```Authorize```.
+4 - Copie o valor gerado do **token** sem as aspas (apenas ```11|YVwjMII...```) e siga para o botão ```Authorize 🔒```.
+
+(Foto)
+
+(Foto)
 
 5 - No campo ```Value``` cole o valor do **token** e depois clique no botão ```Authorize```.
 
-6 - Agora todos os endpoints com ícone de cadeado estão acessíveis, pois você realizou a atenticação de usuário.
+(Foto)
+
+6 - Agora todos os endpoints com ícone de cadeado estão acessíveis, pois você realizou a atenticação de usuário através do **Laravel Sanctum**.
