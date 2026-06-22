@@ -24,9 +24,9 @@ class AuthController extends Controller
             content: new OA\JsonContent(
                 required: ['name', 'email', 'password', 'password_confirmation'],
                 properties: [
-                    new OA\Property(property: 'name',                  type: 'string', example: 'User test'),
-                    new OA\Property(property: 'email',                 type: 'string', example: 'user@email.com'),
-                    new OA\Property(property: 'password',              type: 'string', example: 'password'),
+                    new OA\Property(property: 'name', type: 'string', example: 'User test'),
+                    new OA\Property(property: 'email', type: 'string', example: 'user@email.com'),
+                    new OA\Property(property: 'password', type: 'string', example: 'password'),
                     new OA\Property(property: 'password_confirmation', type: 'string', example: 'password'),
                 ]
             )
@@ -65,7 +65,7 @@ class AuthController extends Controller
             content: new OA\JsonContent(
                 required: ['email', 'password'],
                 properties: [
-                    new OA\Property(property: 'email',    type: 'string', example: 'user@email.com'),
+                    new OA\Property(property: 'email', type: 'string', example: 'user@email.com'),
                     new OA\Property(property: 'password', type: 'string', example: 'password'),
                 ]
             )
@@ -96,8 +96,8 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => "$user->name realizou login!",
-            'user' => new UserResource($user),
-            'token' => $token,
+            'user'    => new UserResource($user),
+            'token'   => $token,
             'token_type' => 'Bearer'
         ]);
     }

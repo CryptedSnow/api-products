@@ -58,8 +58,8 @@ class ProdutoController extends Controller
             content: new OA\JsonContent(
                 required: ['nome', 'valor', 'quantidade', 'fora_validade'],
                 properties: [
-                    new OA\Property(property: 'nome',  type: 'string',  example: 'Notebook Gamer'),
-                    new OA\Property(property: 'valor', type: 'number',  format: 'float', example: 3000),
+                    new OA\Property(property: 'nome', type: 'string', example: 'Notebook Gamer'),
+                    new OA\Property(property: 'valor', type: 'number', format: 'float', example: 3000),
                     new OA\Property(property: 'quantidade', type: 'integer', example: 10),
                     new OA\Property(property: 'fora_validade', type: 'boolean', example: false),
                 ]
@@ -168,7 +168,7 @@ class ProdutoController extends Controller
         requestBody: new OA\RequestBody(
             content: new OA\JsonContent(
                 properties: [
-                    new OA\Property(property: 'nome',  type: 'string', example: 'Notebook Gamer'),
+                    new OA\Property(property: 'nome', type: 'string', example: 'Notebook Gamer'),
                     new OA\Property(property: 'valor', type: 'number', format: 'float', example: 4999.90),
                     new OA\Property(property: 'quantidade', type: 'integer', example: 10),
                     new OA\Property(property: 'fora_validade', type: 'boolean', example: false),

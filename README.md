@@ -59,4 +59,4 @@ Pois os dois endpoints mostrados anteriormente são os únicos que são acessív
 
 ![](https://raw.githubusercontent.com/CryptedSnow/api-products/refs/heads/main/public/img/04.png)
 
-6 - Agora todos os endpoints com ícone de cadeado estão acessíveis, pois você realizou a atenticação de usuário através do **Laravel Sanctum**.
+6 - Agora todos os endpoints com ícone de cadeado estão acessíveis, pois você realizou a autenticação de usuário através do **Laravel Sanctum**.
