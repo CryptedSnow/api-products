@@ -29,7 +29,7 @@ docker-compose exec app php artisan migrate
 
 🔐 **Autenticação** 
 
-A autenticação por meio do **Laravel Sanctum** é necessária para acessar e executar quase todos os endpoints da API.
+A autenticação por meio do **Laravel Sanctum** é necessária para acessar e executar endpoints que necessitem do usuário estar autenticado.
 
 1 - Para executar os endpoints no ```Swagger``` da aplicação, acesse o seguinte endereço no navegador:
 
