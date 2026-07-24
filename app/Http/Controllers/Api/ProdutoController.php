@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\{ProdutoStoreRequest, ProdutoUpdateRequest};
 use App\Http\Resources\ProdutoResource;
-use App\Interfaces\ProdutoInterface;
+use App\Repositories\ProdutoRepository;
 use Illuminate\Http\{JsonResponse, Request};
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +13,7 @@ use OpenApi\Attributes as OA;
 
 class ProdutoController extends Controller
 {
-    public function __construct(private ProdutoInterface $produtoInterface) {}
+    public function __construct(private ProdutoRepository $produtoRepository) {}
 
     #[OA\Get(
         path: '/produtos',
@@ -37,7 +37,7 @@ class ProdutoController extends Controller
     )]
     public function index(): AnonymousResourceCollection | JsonResponse
     {
-        $produtos = $this->produtoInterface->indexProdutos(10);
+        $produtos = $this->produtoRepository->indexProdutos(10);
 
         if ($produtos->isEmpty()) {
             return response()->json([
@@ -75,7 +75,7 @@ class ProdutoController extends Controller
     {
         $validacoes = $request->validated();
 
-        $produto = $this->produtoInterface->createProduto($validacoes);
+        $produto = $this->produtoRepository->createProduto($validacoes);
 
         return response()->json([
             'message' => "Produto $produto->nome foi criado.",
@@ -119,7 +119,7 @@ class ProdutoController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $produtos = $this->produtoInterface->searchProdutoNome($nomeProduto);
+        $produtos = $this->produtoRepository->searchProdutoNome($nomeProduto);
 
         if ($produtos->isEmpty()) {
             return response()->json([
@@ -146,7 +146,7 @@ class ProdutoController extends Controller
     )]
     public function show(int $id): ProdutoResource | JsonResponse
     {
-        $produto = $this->produtoInterface->findProdutoId($id);
+        $produto = $this->produtoRepository->findProdutoId($id);
 
         if (!$produto) {
             return response()->json([
@@ -183,7 +183,7 @@ class ProdutoController extends Controller
     )]
     public function update(ProdutoUpdateRequest $request, int $id): JsonResponse
     {
-        $produto = $this->produtoInterface->findProdutoId($id);
+        $produto = $this->produtoRepository->findProdutoId($id);
 
         if (!$produto) {
             return response()->json([
@@ -193,7 +193,7 @@ class ProdutoController extends Controller
 
         $validacoes = $request->validated();
 
-        $produto = $this->produtoInterface->updateProduto($produto, $validacoes);
+        $produto = $this->produtoRepository->updateProduto($produto, $validacoes);
 
         return response()->json([
             'message' => "Produto $produto->nome foi atualizado.",
@@ -217,7 +217,7 @@ class ProdutoController extends Controller
     )]
     public function destroy(int $id): JsonResponse
     {
-        $produto = $this->produtoInterface->findProdutoId($id);
+        $produto = $this->produtoRepository->findProdutoId($id);
 
         if (!$produto) {
             return response()->json([
@@ -225,7 +225,7 @@ class ProdutoController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $this->produtoInterface->deleteProduto($produto);
+        $this->produtoRepository->deleteProduto($produto);
 
         return response()->json([
             'message' => "Produto $produto->nome foi deletado."

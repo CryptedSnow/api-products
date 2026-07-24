@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Interfaces;
+namespace App\Repositories;
 
 use App\Models\Produto;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-interface ProdutoInterface
+interface ProdutoRepository
 {
     public function indexProdutos(int $perPage = 10): LengthAwarePaginator;
     public function findProdutoId(int $id): ?Produto;

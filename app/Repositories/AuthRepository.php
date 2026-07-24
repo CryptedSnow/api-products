@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Interfaces;
+namespace App\Repositories;
 
 use App\Models\User;
 
-interface AuthInterface
+interface AuthRepository
 {
     public function createUser(array $data): User;
     public function findUserByEmail(string $email): ?User;

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
-use App\Interfaces\AuthInterface;
+use App\Repositories\AuthRepository;
 use Illuminate\Http\{JsonResponse, Request};
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -13,7 +13,7 @@ use OpenApi\Attributes as OA;
 
 class AuthController extends Controller
 {
-    public function __construct(private AuthInterface $authInterface) {}
+    public function __construct(private AuthRepository $authRepository) {}
 
     #[OA\Post(
         path: '/register',
@@ -44,9 +44,9 @@ class AuthController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-        $user = $this->authInterface->createUser($request->only(['name', 'email', 'password']));
+        $user = $this->authRepository->createUser($request->only(['name', 'email', 'password']));
 
-        $token = $this->authInterface->createToken($user);
+        $token = $this->authRepository->createToken($user);
 
         return response()->json([
             'message'    => "Usuário $user->name criado com sucesso!",
@@ -82,7 +82,7 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
-        $user = $this->authInterface->findUserByEmail($request->email);
+        $user = $this->authRepository->findUserByEmail($request->email);
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
@@ -90,9 +90,9 @@ class AuthController extends Controller
             ]);
         }
 
-        $this->authInterface->revokeAllTokens($user);
+        $this->authRepository->revokeAllTokens($user);
 
-        $token = $this->authInterface->createToken($user);
+        $token = $this->authRepository->createToken($user);
 
         return response()->json([
             'message' => "$user->name realizou login!",

@@ -3,10 +3,10 @@
 namespace App\Services;
 
 use App\Models\Produto;
-use App\Interfaces\ProdutoInterface;
+use App\Repositories\ProdutoRepository;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class ProdutoService implements ProdutoInterface
+class ProdutoService implements ProdutoRepository
 {
     public function indexProdutos(int $perPage = 10): LengthAwarePaginator
     {

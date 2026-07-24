@@ -3,10 +3,10 @@
 namespace App\Services;
 
 use App\Models\User;
-use App\Interfaces\AuthInterface;
+use App\Repositories\AuthRepository;
 use Illuminate\Support\Facades\Hash;
 
-class AuthService implements AuthInterface
+class AuthService implements AuthRepository
 {
     public function createUser(array $data): User
     {
