@@ -11,4 +11,11 @@ use Illuminate\Database\Eloquent\Attributes\{Fillable, Table};
 class Produto extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected function casts(): array
+    {
+        return [
+            'fora_validade' => 'boolean',
+        ];
+    }
 }
