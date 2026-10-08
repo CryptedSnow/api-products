@@ -27,6 +27,22 @@ docker-compose exec app php artisan key:generate
 docker-compose exec app php artisan migrate
 ```
 
+🧪 **Testes automatizados**
+
+Estou utilizando o **Pest** para a criação de testes automatizados da aplicação.
+
+1 - Para executar os testes de ```AuthTest.php``` execute o seguinte comando:
+
+```
+docker-compose exec app ./vendor/bin/pest tests/Feature/AuthTest.php
+```
+
+2 - Para executar os testes de ```ProdutoTest.php``` execute o seguinte comando:
+
+```
+docker-compose exec app ./vendor/bin/pest tests/Feature/ProdutoTest.php
+```
+
 🔐 **Autenticação** 
 
 A autenticação por meio do **Laravel Sanctum** é necessária para acessar e executar endpoints que necessitem do usuário estar autenticado.
